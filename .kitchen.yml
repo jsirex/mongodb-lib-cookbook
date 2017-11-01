@@ -1,0 +1,90 @@
+---
+driver:
+  name: dokken
+  chef_version: 13.5.3
+  privileged: true
+
+provisioner:
+  name: dokken
+  # chef_log_level: info
+
+transport:
+  name: dokken
+
+verifier:
+  name: inspec
+  # output: reports/%{platform}_%{suite}_inspec.xml
+
+platforms:
+  - name: debian-8
+    driver:
+      image: dokken/debian-8
+      pid_one_command: /bin/systemd
+    run_list:
+      - recipe[apt]
+
+  # Mongodb not ready yet for the debian-9
+  # - name: debian-9
+  #   driver:
+  #     image: dokken/debian-9
+  #     pid_one_command: /bin/systemd
+  #   run_list:
+  #     - recipe[apt]
+
+  - name: ubuntu-16
+    driver:
+      image: dokken/ubuntu-16.04
+      pid_one_command: /bin/systemd
+    run_list:
+      - recipe[apt]
+
+  # Mongodb not ready yet for the ubuntu-17
+  # - name: ubuntu-17
+  #   driver:
+  #     image: dokken/ubuntu-17.04
+  #     pid_one_command: /bin/systemd
+  #   run_list:
+  #     - recipe[apt]
+
+  - name: centos-7
+    driver:
+      image: dokken/centos-7
+      pid_one_command: /usr/lib/systemd/systemd
+    run_list:
+      - recipe[yum]
+
+suites:
+  - name: 32x
+    excludes:
+      - debian-9
+      - centos-7
+    verifier:
+      inspec_tests:
+        - path: test/inspec/cluster
+        - path: test/inspec/packages
+      attributes:
+        mongodb_package_version: 3.2.16
+    run_list:
+      - recipe[mongodb-lib-test::default]
+      - recipe[mongodb-lib-test::replicaset_builder]
+      - recipe[mongodb-lib-test::shard_builder]
+    attributes:
+      mongodb:
+        lib:
+          version: 3.2.16
+
+  - name: 34x
+    run_list:
+      - recipe[mongodb-lib-test::default]
+      - recipe[mongodb-lib-test::replicaset_builder]
+      - recipe[mongodb-lib-test::shard_builder]
+    verifier:
+      inspec_tests:
+        - path: test/inspec/cluster
+        - path: test/inspec/packages
+      attributes:
+        mongodb_package_version: 3.4.10
+    attributes:
+      mongodb:
+        lib:
+          version: 3.4.10
