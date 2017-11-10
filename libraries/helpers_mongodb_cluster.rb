@@ -42,7 +42,7 @@ module MongoDBLibCookbook
       # @option member [String] host host:port
       def replicaset_member_valid?(member)
         return false unless member && member['_id']
-        return false unless member['host'].match?(/^[\w\.\-]+:\d+/)
+        return false unless member['host'] =~ /^[\w\.\-]+:\d+/
 
         true
       end
