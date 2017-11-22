@@ -13,7 +13,7 @@ Replicaset version may be omitted, because if topology will change cookbook can 
 Because mongodb itself adds to configuration some default values it is really hard to preserve idempotency.
 Thats why algorithm is a bit complicated. See the picture:
 
-![replicaset configuration](https://raw.githubusercontent.com/jsirex/mongodb-lib-cookbook/dev/doc/replication.png)
+![replicaset configuration](https://raw.githubusercontent.com/jsirex/mongodb-lib-cookbook/master/doc/replication.png)
 
 
 ## Sharding
