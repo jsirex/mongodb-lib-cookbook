@@ -37,6 +37,8 @@ module MongoDBLibCookbook
               'User' => new_resource.user,
               'Group' => new_resource.group,
               'ExecStart' => "#{new_resource.daemon_path} --config #{new_resource.config_path}",
+              'RestartSec' => '3s',
+              'Restart' => 'always',
               'LimitFSIZE' => 'infinity',
               'LimitCPU' => 'infinity',
               'LimitAS' => 'infinity',
