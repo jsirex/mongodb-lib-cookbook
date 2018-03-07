@@ -8,7 +8,7 @@ description      'Provides library functions for managing mongodb'
 long_description 'Provides library functions for managing mongodb'
 issues_url       'https://github.com/jsirex/mongodb-lib-cookbook/issues/' if respond_to?(:issues_url)
 source_url       'https://github.com/jsirex/mongodb-lib-cookbook' if respond_to?(:source_url)
-version          '0.2.2'
+version          '0.2.3'
 
 supports 'debian'
 supports 'ubuntu'
