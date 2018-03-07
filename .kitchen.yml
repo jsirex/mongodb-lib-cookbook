@@ -63,7 +63,7 @@ suites:
         - path: test/inspec/cluster
         - path: test/inspec/packages
       attributes:
-        mongodb_package_version: 3.2.16
+        mongodb_package_version: 3.2.19
     run_list:
       - recipe[mongodb-lib-test::default]
       - recipe[mongodb-lib-test::replicaset_builder]
@@ -71,7 +71,7 @@ suites:
     attributes:
       mongodb:
         lib:
-          version: 3.2.16
+          version: 3.2.19
 
   - name: 34x
     run_list:
@@ -83,8 +83,8 @@ suites:
         - path: test/inspec/cluster
         - path: test/inspec/packages
       attributes:
-        mongodb_package_version: 3.4.10
+        mongodb_package_version: 3.4.13
     attributes:
       mongodb:
         lib:
-          version: 3.4.10
+          version: 3.4.13

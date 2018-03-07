@@ -42,7 +42,7 @@ Please consider fixtures cookbooks under `test/fixtures/cookbooks` path.
 
 # Attributes
 
-* `node['mongodb']['lib']['version']` -  Defaults to `3.2.16`.
+* `node['mongodb']['lib']['version']` -  Defaults to `3.2.19`.
 
 # Recipes
 
