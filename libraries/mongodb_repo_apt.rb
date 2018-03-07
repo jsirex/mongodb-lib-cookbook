@@ -22,6 +22,8 @@ module MongoDBLibCookbook
         'EA312927'
       when '3.4'
         '0C49F3730359A14518585931BC711F9BA15703C6'
+      when '3.6'
+        '2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5'
       else
         'UNSUPPORTED VERSION KEY'
       end

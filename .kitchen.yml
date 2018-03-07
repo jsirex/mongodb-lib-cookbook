@@ -88,3 +88,19 @@ suites:
       mongodb:
         lib:
           version: 3.4.13
+
+  - name: 36x
+    run_list:
+      - recipe[mongodb-lib-test::default]
+      - recipe[mongodb-lib-test::replicaset_builder]
+      - recipe[mongodb-lib-test::shard_builder]
+    verifier:
+      inspec_tests:
+        - path: test/inspec/cluster
+        - path: test/inspec/packages
+      attributes:
+        mongodb_package_version: 3.6.3
+    attributes:
+      mongodb:
+        lib:
+          version: 3.6.3
