@@ -28,6 +28,11 @@ Please consider fixtures cookbooks under `test/fixtures/cookbooks` path.
 
 # Requirements
 
+
+## Chef Client:
+
+* chef (>= 12.7) ()
+
 ## Platform:
 
 * debian
