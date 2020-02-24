@@ -18,12 +18,12 @@ module MongoDBLibCookbook
 
     def default_key
       case version
-      when '3.2'
-        'EA312927'
-      when '3.4'
-        '0C49F3730359A14518585931BC711F9BA15703C6'
       when '3.6'
         '2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5'
+      when '4.0'
+        '9DA31620334BD75D9DCB49F368818C72E52529D4'
+      when '4.2'
+        '4B7C549A058F8B6B'
       else
         'UNSUPPORTED VERSION KEY'
       end
